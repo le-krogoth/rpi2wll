@@ -8,7 +8,7 @@ on:
     branches:
       - master
     paths:
-      - 'raspi_zero_2_w.config'
+      - '.config'
 #  schedule:
 #    - cron: 0 8 * * 5
 #  watch:
@@ -17,7 +17,7 @@ on:
 env:
   REPO_URL: https://github.com/buildroot/buildroot
   REPO_BRANCH: 2024.05.x
-  CONFIG_FILE: raspi_zero_2_w.config
+  CONFIG_FILE: .config
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
