@@ -20,12 +20,14 @@ env:
   CONFIG_FILE: .config
   POST_BUILD_FILE: post_build.sh
   POST_IMAGE_FILE: post_image.sh
+  AUTO_WIFI_FILE: auto_wifi.psk
+  DEFAULT_USERS_FILE: default_users
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
-  TZ: Europe/Amsterdam
+  TZ: Europe/Paris
 
 jobs:
   build:
@@ -63,7 +65,8 @@ jobs:
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE buildroot/.config
         [ -e $POST_BUILD_FILE ] && mv $POST_BUILD_FILE buildroot/$POST_BUILD_FILE && chmod +x buildroot/$POST_BUILD_FILE
         [ -e $POST_IMAGE_FILE ] && mv $POST_IMAGE_FILE buildroot/$POST_IMAGE_FILE && chmod +x buildroot/$POST_IMAGE_FILE
-        [ -e auto_wifi.psk ] && mv auto_wifi.psk buildroot/auto_wifi.psk
+        [ -e AUTO_WIFI_FILE ] && mv auto_wifi.psk buildroot/auto_wifi.psk
+        [ -e DEFAULT_USERS_FILE ] && mv DEFAULT_USERS_FILE buildroot/DEFAULT_USERS_FILE
         echo $SHELL
         cd buildroot
         ls -alh
