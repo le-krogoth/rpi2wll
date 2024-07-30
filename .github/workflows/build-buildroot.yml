@@ -65,8 +65,8 @@ jobs:
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE buildroot/.config
         [ -e $POST_BUILD_FILE ] && mv $POST_BUILD_FILE buildroot/$POST_BUILD_FILE && chmod +x buildroot/$POST_BUILD_FILE
         [ -e $POST_IMAGE_FILE ] && mv $POST_IMAGE_FILE buildroot/$POST_IMAGE_FILE && chmod +x buildroot/$POST_IMAGE_FILE
-        [ -e AUTO_WIFI_FILE ] && mv auto_wifi.psk buildroot/auto_wifi.psk
-        [ -e DEFAULT_USERS_FILE ] && mv DEFAULT_USERS_FILE buildroot/DEFAULT_USERS_FILE
+        [ -e $AUTO_WIFI_FILE ] && mv $AUTO_WIFI_FILE buildroot/$AUTO_WIFI_FILE
+        [ -e $DEFAULT_USERS_FILE ] && mv $DEFAULT_USERS_FILE buildroot/$DEFAULT_USERS_FILE
         echo $SHELL
         cd buildroot
         ls -alh
