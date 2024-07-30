@@ -61,8 +61,8 @@ jobs:
       run: |
         [ -e files ] && mv files buildroot/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE buildroot/.config
-        [ -e $POST_BUILD_FILE ] && mv $POST_BUILD_FILE buildroot/$POST_BUILD_FILE
-        [ -e $POST_IMAGE_FILE ] && mv $POST_IMAGE_FILE buildroot/$POST_IMAGE_FILE
+        [ -e $POST_BUILD_FILE ] && mv $POST_BUILD_FILE buildroot/$POST_BUILD_FILE && chmod +x buildroot/$POST_BUILD_FILE
+        [ -e $POST_IMAGE_FILE ] && mv $POST_IMAGE_FILE buildroot/$POST_IMAGE_FILE && chmod +x buildroot/$POST_IMAGE_FILE
         [ -e auto_wifi.psk ] && mv auto_wifi.psk buildroot/auto_wifi.psk
         echo $SHELL
         cd buildroot
