@@ -62,7 +62,7 @@ jobs:
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files buildroot/files
-        [ -e package ] && rm -r buildroot/package/netsurf && mv package buildroot/package
+        [ -e package ] && rm -r buildroot/package/netsurf && mv package/ buildroot/package
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE buildroot/.config
         [ -e $POST_BUILD_FILE ] && mv $POST_BUILD_FILE buildroot/$POST_BUILD_FILE && chmod +x buildroot/$POST_BUILD_FILE
         [ -e $POST_IMAGE_FILE ] && mv $POST_IMAGE_FILE buildroot/$POST_IMAGE_FILE && chmod +x buildroot/$POST_IMAGE_FILE
@@ -70,6 +70,7 @@ jobs:
         [ -e $DEFAULT_USERS_FILE ] && mv $DEFAULT_USERS_FILE buildroot/$DEFAULT_USERS_FILE
         echo $SHELL
         cd buildroot
+        ls -alh package/netsurf
         ls -alh
 
     - name: SSH connection to Actions
